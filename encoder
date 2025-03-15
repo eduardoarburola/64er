@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encoder</title>
+</head>
+<body>
+    <h1>Base64 Encoder</h1>
+    <p id="output"></p>
+
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the 'input' parameter from the address bar
+        const inputString = getQueryParam('input');
+
+        if (inputString) {
+            // Encode the string to Base64
+            const base64Encoded = btoa(inputString);
+
+            // Display the result
+            document.getElementById('output').innerText = `Base64 Encoded Value: ${base64Encoded}`;
+        } else {
+            document.getElementById('output').innerText = 'Please provide an "input" query parameter in the URL.';
+        }
+    </script>
+</body>
+</html>
